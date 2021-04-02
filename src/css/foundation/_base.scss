@@ -1,0 +1,93 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+a,
+button {
+  display: inline-block;
+  text-decoration: none;
+  transition: opacity 0.5s;
+
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+input[type="submit"] {
+  transition: opacity 0.5s;
+
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+img {
+  vertical-align: bottom;
+  max-width: 100%;
+  height: auto;
+}
+
+html {
+  font-size: 100px;
+}
+
+body {
+  font-family: "ヒラギノ角ゴ", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+  line-height: 1;
+  font-size: 0.1rem;
+}
+
+// 100px・・・1としたときのコンテンツ幅で割ることでremで可変幅をレイアウトするためのルート指定。
+// 100pxを起点としている理由は、当サイト対象ブラウザのedgeだと小数点第3桁を認識できないので1000pxを起点にしたとすると、0.1px単位でのrem指定ができなくなってしまうので
+// デザイン上の0.1px・・・0.001rem
+// デザイン上の1px・・・0.01rem
+// デザイン上の10px・・・0.1rem
+// デザイン上の100px・・・1rem
+// デザイン上の1000px・・・10rem
+//
+// @media screen and (min-width: 1024px ) {
+//   body {
+//     font-size: 0.1rem;
+//   }
+//   html {
+//     font-size: calc(100vw / 13.66);
+//   }
+// }
+
+@media screen and (min-width: 768px ) and (max-width: $pc-middle-width) {
+  body {
+    font-size: 0.1rem;
+  }
+  html {
+    font-size: calc(100vw / 10.24);
+  }
+}
+
+@include sp {
+  body {
+    font-size: 0.1rem;
+  }
+  html {
+    font-size: calc(100vw / 3.75);
+  }
+}
+
+.is-pc {
+  @include pcall {
+    display: block;
+  }
+  @include sp {
+    display: none;
+  }
+}
+
+.is-sp {
+  @include pcall {
+    display: none;
+  }
+  @include sp {
+    display: block;
+  }
+}

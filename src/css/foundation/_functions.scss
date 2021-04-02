@@ -1,0 +1,19 @@
+@function get_vw_pc($size, $viewport:1360) {
+  $result: ($size / $viewport * 100) + vw;
+  @return $result;
+}
+
+@function get_vw_sp($size, $viewport:320) {
+  $result: ($size / $viewport * 100) + vw;
+  @return $result;
+}
+
+@function get_minus_index($value) {
+  $result: index($minus-z-index, $value);
+  @return -$result;
+}
+
+@function get_line_height($lineheight:10, $fontsize:10) {
+  $result: ($lineheight / $fontsize);
+  @return $result;
+}

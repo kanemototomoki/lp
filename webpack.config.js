@@ -1,7 +1,8 @@
 // Generated using webpack-cli http://github.com/webpack-cli
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const nodeEnv = process.env.NODE_ENV || 'development';
 const isDev = nodeEnv === 'development';
@@ -15,7 +16,8 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'js/bundle.js'
+    filename: 'js/bundle.js',
+    clean: true,
   },
   devServer: {
     // open: 'Google chrome',
@@ -23,16 +25,9 @@ module.exports = {
     inline: true,
     hot: true,
     port: 8080,
-    contentBase: './src'
+    contentBase: './src',
+    openPage: 'html/index.html'
   },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: 'index.html',
-    }),
-
-    // Add your plugins here
-    // Learn more obout plugins from https://webpack.js.org/configuration/plugins/
-  ],
   module: {
     rules: [
       {
@@ -75,7 +70,7 @@ module.exports = {
       },
       {
         test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/,
-        type: 'asset',
+        type: 'asset/inline',
       },
       // Add your rules for custom modules here
       // Learn more about loaders from https://webpack.js.org/loaders/
@@ -86,12 +81,20 @@ module.exports = {
       filename: 'css/style.css',
     }),
     new HtmlWebpackPlugin({
-      filename: 'index.html',
+      filename: 'html/index.html',
       template: path.resolve(__dirname, './src/html/index.html'),
       minify: false,
       cache: true,
       inject: false,
-    })
+    }),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: 'src/images',
+          to: 'images'
+        },
+      ],
+    }),
   ],
   resolve: {
     extensions: ['.js', '.scss'],

@@ -1,4 +1,6 @@
 import '../css/style.scss';
 
-const text = 'Hello Word!';
-console.log(text)
+const text = () => {
+  return 'Hello Word!';
+};
+console.log(text());

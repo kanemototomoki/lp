@@ -13,3 +13,13 @@ $ npm i
 ```sh
 $ npm run dev
 ```
+
+フォーマット
+```sh
+$ npm run fmt
+```
+
+build
+```sh
+$ npm run build
+```

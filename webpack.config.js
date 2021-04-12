@@ -20,7 +20,7 @@ module.exports = {
     clean: true,
   },
   devServer: {
-    // open: 'Google chrome',
+    open: 'Google chrome',
     host: 'localhost',
     inline: true,
     hot: true,

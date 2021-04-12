@@ -34,7 +34,8 @@ html {
 }
 
 body {
-  font-family: "ヒラギノ角ゴ", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+  font-family: "ヒラギノ角ゴ", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo,
+    Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
   line-height: 1;
   font-size: 0.1rem;
 }
@@ -46,36 +47,22 @@ body {
 // デザイン上の10px・・・0.1rem
 // デザイン上の100px・・・1rem
 // デザイン上の1000px・・・10rem
-//
-// @media screen and (min-width: 1024px ) {
-//   body {
-//     font-size: 0.1rem;
-//   }
-//   html {
-//     font-size: calc(100vw / 13.66);
-//   }
-// }
 
-@media screen and (min-width: 768px ) and (max-width: $pc-middle-width) {
-  body {
-    font-size: 0.1rem;
-  }
+// 100vw / カンバスサイズ
+@include pc {
   html {
-    font-size: calc(100vw / 10.24);
+    font-size: calc(100vw / 19.2);
   }
 }
 
 @include sp {
-  body {
-    font-size: 0.1rem;
-  }
   html {
-    font-size: calc(100vw / 3.75);
+    font-size: calc(100vw / 7.5);
   }
 }
 
 .is-pc {
-  @include pcall {
+  @include pc {
     display: block;
   }
   @include sp {
@@ -84,7 +71,7 @@ body {
 }
 
 .is-sp {
-  @include pcall {
+  @include pc {
     display: none;
   }
   @include sp {

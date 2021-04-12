@@ -1,20 +1,7 @@
-
 //ブレークポイントを決めてから使用すること！
 
 @mixin pc {
-  @media screen and (min-width: 1366px) {
-    @content;
-  }
-}
-
-@mixin pcmiddle {
-  @media screen and (min-width: 768px) and (max-width: $pc-middle-width) {
-    @content;
-  }
-}
-
-@mixin pcall {
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 768px) and (max-width: 1920px) {
     @content;
   }
 }
@@ -25,15 +12,20 @@
   }
 }
 
-@mixin font-face($font-family, $file-path, $font-weight: normal, $font-style: normal) {
+@mixin font-face(
+  $font-family,
+  $file-path,
+  $font-weight: normal,
+  $font-style: normal
+) {
   @font-face {
     font-family: $font-family;
-    src: url('#{$file-path}.eot');
-    src: url('#{$file-path}.eot?#iefix') format('embedded-opentype'),
-    url('#{$file-path}.woff2') format('woff2'),
-    url('#{$file-path}.woff') format('woff'),
-    url('#{$file-path}.ttf') format('truetype'),
-    url('#{$file-path}.svg##{$font-family}') format('svg');
+    src: url("#{$file-path}.eot");
+    src: url("#{$file-path}.eot?#iefix") format("embedded-opentype"),
+      url("#{$file-path}.woff2") format("woff2"),
+      url("#{$file-path}.woff") format("woff"),
+      url("#{$file-path}.ttf") format("truetype"),
+      url("#{$file-path}.svg##{$font-family}") format("svg");
     font-weight: $font-weight;
     font-style: $font-style;
   }
@@ -42,7 +34,7 @@
   @media screen and (-webkit-min-device-pixel-ratio: 0) {
     @font-face {
       font-family: $font-family;
-      src: url('#{$file-path}.svg##{$font-family}') format('svg');
+      src: url("#{$file-path}.svg##{$font-family}") format("svg");
     }
   }
 }

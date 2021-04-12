@@ -1,22 +1,18 @@
 /*foundation---------------------------------*/
-@import './foundation/_variables.scss';
-@import './foundation/_reset.scss';
-@import './foundation/_mixin.scss';
-@import './foundation/_base.scss';
-@import './foundation/_functions.scss';
-
+@import "./foundation/_variables.scss";
+@import "./foundation/_reset.scss";
+@import "./foundation/_mixin.scss";
+@import "./foundation/_base.scss";
+@import "./foundation/_functions.scss";
 
 /*layout-------------------------------------*/
-@import './layout/*.scss';
-
+@import "./layout/*.scss";
 
 /*component----------------------------------*/
-@import './object/component/*.scss';
-
+@import "./object/component/*.scss";
 
 /*project------------------------------------*/
-@import './object/project/*.scss';
-
+@import "./object/project/*.scss";
 
 /*utility------------------------------------*/
-@import './object/utility/*.scss';
+@import "./object/utility/*.scss";

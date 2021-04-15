@@ -12,21 +12,20 @@ console.log('---', nodeEnv, '---')
 module.exports = {
   mode: nodeEnv,
   entry: {
-    path: './src/js/index.js'
+    path: './src/assets/js/index.js'
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'js/bundle.js',
+    filename: 'assets/js/bundle.js',
     clean: true,
   },
   devServer: {
     open: 'Google chrome',
-    host: 'localhost',
+    host: '0.0.0.0',
     inline: true,
     hot: true,
     port: 8080,
     contentBase: './src',
-    openPage: 'html/index.html'
   },
   module: {
     rules: [
@@ -72,26 +71,30 @@ module.exports = {
         test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/,
         type: 'asset/inline',
       },
+      {
+        test: /\.html$/i,
+        loader: 'html-loader',
+      }
       // Add your rules for custom modules here
       // Learn more about loaders from https://webpack.js.org/loaders/
     ],
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: 'css/style.css',
+      filename: 'assets/css/style.css',
     }),
     new HtmlWebpackPlugin({
-      filename: 'html/index.html',
-      template: path.resolve(__dirname, './src/html/index.html'),
+      filename: 'index.html',
+      template: path.resolve(__dirname, './src/index.html'),
       minify: false,
       cache: true,
-      inject: false,
+      inject: true,
     }),
     new CopyWebpackPlugin({
       patterns: [
         {
-          from: 'src/images',
-          to: 'images'
+          from: 'src/assets/images',
+          to: 'assets/images'
         },
       ],
     }),

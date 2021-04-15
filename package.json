@@ -1,8 +1,8 @@
 {
-  "name": "my-webpack-project",
+  "name": "lp",
   "version": "1.0.0",
-  "description": "My webpack project",
-  "main": "index.js",
+  "description": "lp",
+  "private": true,
   "scripts": {
     "build": "cross-env NODE_ENV=production webpack --progress",
     "dev": "cross-env NODE_ENV=development webpack serve",
